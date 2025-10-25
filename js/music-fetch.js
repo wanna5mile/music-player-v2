@@ -1,5 +1,5 @@
 // ====== Dynamic Music Loader ======
-const MUSIC_API_URL = "https://script.google.com/macros/s/PASTE_YOUR_DEPLOYED_EXEC_URL_HERE/exec";
+const MUSIC_API_URL = "https://script.google.com/macros/s/AKfycbw6ozFOqTPaw2pjUOumQ6Xj_7uEghVH7930wdu7ur4BVvAGSkNOp_OKzxk-XnGuvEdF/exec";
 
 let flat_music_list = [];
 
