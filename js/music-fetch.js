@@ -1,22 +1,28 @@
-// ====== Dynamic Music Loader ======
-const MUSIC_API_URL = "https://script.google.com/macros/s/AKfycbw6ozFOqTPaw2pjUOumQ6Xj_7uEghVH7930wdu7ur4BVvAGSkNOp_OKzxk-XnGuvEdF/exec";
+/* ==========================================================
+   WannaSmile | Dynamic Music Loader (GitHub → Google Sheets → Player)
+   ========================================================== */
+
+const MUSIC_API_URL = "https://script.google.com/macros/s/AKfycbw4lb6HDjV4d4p3f-mTV8llBnM4YnIwmy7iLeYUfe4Vsneh48Pq6Hll4y_hoIeIqDF6pg/exec";
 
 let flat_music_list = [];
 
+/* ---------------------------
+   Fetch & Build Music List
+   --------------------------- */
 async function loadMusicList() {
   try {
-    // Fetch live music data (Google Apps Script endpoint)
-    const response = await fetch(MUSIC_API_URL + "?cb=" + Date.now(), { cache: "no-store" });
+    console.log("🎶 Fetching music data...");
+    const response = await fetch(`${MUSIC_API_URL}?cb=${Date.now()}`, { cache: "no-store" });
+
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const tracks = await response.json();
-
     if (!Array.isArray(tracks) || tracks.length === 0) {
-      console.warn("No tracks found from API");
+      console.warn("⚠️ No MP3 tracks found from API");
       return;
     }
 
-    // Convert Google Sheet JSON → player track objects
+    // Normalize Google Sheet entries → Player format
     flat_music_list = tracks.map((t, i) => ({
       name: t.name || t.title || "Untitled Track",
       artist: t.artist || "Unknown Artist",
@@ -27,21 +33,23 @@ async function loadMusicList() {
       isMultiPart: false,
       partIndex: 0,
       originalIndex: i,
-      lastPartIndex: 0
+      lastPartIndex: 0,
     }));
 
     console.log(`🎵 Loaded ${flat_music_list.length} tracks from API`);
 
-    // Load first track (only if player logic is present)
+    // Load first track if player exists
     if (typeof loadTrack === "function") {
       loadTrack(0);
     } else {
-      console.warn("loadTrack() not found — verify music-player.js is loaded");
+      console.warn("⚠️ loadTrack() not found — ensure music-player.js is loaded before this script");
     }
   } catch (err) {
-    console.error("Failed to load music list:", err);
+    console.error("❌ Failed to load music list:", err);
   }
 }
 
-// Initialize when DOM is ready
+/* ---------------------------
+   Init on DOM Ready
+   --------------------------- */
 document.addEventListener("DOMContentLoaded", loadMusicList);
