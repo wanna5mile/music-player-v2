@@ -96,11 +96,13 @@
       }
     }
 
-    // Load once + refresh every 5s
     fetchVotes();
     setInterval(fetchVotes, 5000);
   </script>
-  
+
+  <!-- Load music fetcher first -->
+  <script src="js/music-fetch.js" defer></script>
+  <!-- Then load player -->
   <script src="js/music-playerv2.js" defer></script>
   <script src="js/404.js" defer></script> 
 </body>
