@@ -450,7 +450,7 @@ hr { margin: 40px 0; border: 0; border-top: 1px solid #FFD700; opacity: 0.5; wid
     transition: transform 0.3s ease;
 }
 .cupid:hover { transform: scale(1.1); }
-.cupid-first-container { top: -10px; right: 200px; }
+.cupid-first-container { top: -10px; right: 180px; }
 .cupid-music-player { bottom: 180px; left: 130px; }
 
 /* === MOBILE OPTIMIZATION === */
