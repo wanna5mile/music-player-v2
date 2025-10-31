@@ -27,8 +27,9 @@
 </head>
 <body>
 
-  <!-- === STICKERS (Cupids) === -->
-  <div class="stickers cupid-first-container" id="cupidFlipped"></div>
+  <!-- === STICKERS (Top and Bottom Cupids) === -->
+  <img src="images/cupid-top.png" alt="Sticker Up" class="stickers sticker-up" id="cupidFlipped">
+  <img src="images/cupid-bottom.png" alt="Sticker Down" class="stickers sticker-down" id="cupidNormal">
 
   <!-- === MUSIC PLAYER CONTAINER === -->
   <div class="container" id="musicPlayer">
@@ -86,33 +87,11 @@
         <span class="stroke"></span>
       </div>
     </div>
-
-    <div class="stickers cupid-music-player" id="cupidNormal"></div>
   </div>
 
-  <!-- === SCRIPTS === -->
-  <script>
-    // Fetch votes (read-only)
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyx1pB3AbeDIaWFxDANrrEWY2NkgNmRYB3k_aNR109pR5aEVExaWniEc5-oZ0D2xy6FXw/exec";
-    const votesDisplay = document.getElementById("currentVotes");
-
-    async function fetchVotes() {
-      try {
-        const response = await fetch(SCRIPT_URL + "?cb=" + Date.now());
-        const count = await response.text();
-        votesDisplay.textContent = isNaN(parseInt(count)) ? "error" : count;
-      } catch (err) {
-        votesDisplay.textContent = "error";
-      }
-    }
-
-    fetchVotes();
-    setInterval(fetchVotes, 5000);
-  </script>
-
-  <!-- JS Modules -->
+  <!-- === JS MODULES === -->
   <script src="system/js/music-fetch.js" defer></script>
   <script src="system/js/music-playerv2.js" defer></script>
-  <script src="system/js/404.js" defer></script> 
+  <script src="system/js/404.js" defer></script>
 </body>
 </html>
