@@ -3,88 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!--<meta name="theme-color" content="#222" />-->
   <title>Music Player v2</title>
 
-  <!-- === CSS STRUCTURE === -->
-  <!-- Main structure and layout styles -->
+  <!-- === CSS === -->
   <link rel="stylesheet" href="system/css/main.css" />
-
-  <!-- Theme (colors, backgrounds, variable-driven customization) -->
   <link rel="stylesheet" href="system/css/theme.css" />
 
   <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+  />
 
-  <!-- Favicon -->
+  <link rel="icon" href="images/vinyl.png" />
 </head>
 <body>
 
-  <!-- === STICKERS (Top and Bottom Cupids) === -->
-  <img src="images/cupid-top.png" alt="Sticker Up" class="stickers sticker-up" id="cupidFlipped">
-  <img src="images/cupid-bottom.png" alt="Sticker Down" class="stickers sticker-down" id="cupidNormal">
+  <!-- === DECOR === -->
+  <img src="images/cupid-top.png" alt="Cupid Top" class="sticker sticker-up" />
+  <img src="images/cupid-bottom.png" alt="Cupid Bottom" class="sticker sticker-down" />
 
-  <!-- === MUSIC PLAYER CONTAINER === -->
-  <div class="container" id="musicPlayer">
-    <div class="player card background" id="playerBackground">
+  <!-- === MAIN PLAYER === -->
+  <div class="container">
+    <div class="player card">
       <div class="wrapper">
         <div class="details">
-          <div class="track-art vinyl" id="vinylContainer">
-            <div class="cover-art cover" id="coverArt"></div>
+          <div class="track-art">
+            <div class="vinyl"></div>
+            <div class="cover"></div>
           </div>
-          <a class="track-name" href="#" target="_blank">Track Name</a>
-          <a class="track-artist" href="#" target="_blank">Track Artist</a>
+          <h2 class="track-name">Track Name</h2>
+          <h3 class="track-artist">Track Artist</h3>
         </div>
 
-        <div class="slider_container">
-          <div class="current-time">00:00</div>
-          <input type="range" min="0" max="100" value="0" class="seek_slider" />
-          <div class="total-duration">00:00</div>
+        <div class="slider-group">
+          <span class="current-time">00:00</span>
+          <input type="range" class="seek-slider" min="0" max="100" value="0">
+          <span class="total-duration">00:00</span>
         </div>
 
-        <div class="slider_container">
+        <div class="slider-group">
           <i class="fa fa-volume-down"></i>
-          <input type="range" min="0" max="100" value="99" class="volume_slider" />
+          <input type="range" class="volume-slider" min="0" max="100" value="100">
           <i class="fa fa-volume-up"></i>
         </div>
 
-        <div class="now-playing">PLAYING x OF y</div>
-
         <div class="buttons">
-          <div class="random-track" title="Random">
-            <i class="fas fa-random fa-2x"></i>
-          </div>
-          <div class="prev-track" title="Previous">
-            <i class="fa fa-step-backward fa-2x"></i>
-          </div>
-          <div class="playpause-track" title="Play/Pause">
-            <i class="fa fa-play-circle fa-5x"></i>
-          </div>
-          <div class="next-track" title="Next">
-            <i class="fa fa-step-forward fa-2x"></i>
-          </div>
-          <div class="repeat-track" title="Repeat">
-            <i class="fas fa-redo fa-2x"></i>
-          </div>
+          <button class="random"><i class="fas fa-random fa-2x"></i></button>
+          <button class="prev"><i class="fa fa-step-backward fa-2x"></i></button>
+          <button class="playpause"><i class="fa fa-play-circle fa-5x"></i></button>
+          <button class="next"><i class="fa fa-step-forward fa-2x"></i></button>
+          <button class="repeat"><i class="fas fa-redo fa-2x"></i></button>
         </div>
-      </div>
-      
-      <!-- === AUDIO VISUALIZER === -->
-      <div id="wave" class="loader">
-        <span class="stroke"></span>
-        <span class="stroke"></span>
-        <span class="stroke"></span>
-        <span class="stroke"></span>
-        <span class="stroke"></span>
-        <span class="stroke"></span>
-        <span class="stroke"></span>
+
+        <div class="now-playing">PLAYING X OF Y</div>
       </div>
     </div>
   </div>
 
-  <!-- === JS MODULES === -->
-  <script src="system/js/music-fetch.js" defer></script>
-  <script src="system/js/music-playerv2.js" defer></script>
-  <script src="system/js/404.js" defer></script>
+  <!-- === JS === -->
+  <script src="system/js/player.js" defer></script>
 </body>
 </html>
