@@ -1,0 +1,76 @@
+/* === THEME VARIABLES === */
+:root {
+  /* Core Colors */
+  --color-bg: #222;
+  --color-text: #fff;
+  --color-accent: #FFA500;
+  --color-highlight: #FFD700;
+  --color-hover: #EDA20C;
+  --color-muted: #555;
+  --color-overlay: rgba(255, 255, 255, 0.1);
+
+  /* Shadows & Borders */
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 10px rgba(255, 215, 0, 0.3);
+
+  /* Gradients */
+  --gradient-seek: linear-gradient(to right, #FF8C00, #FFA500);
+  --gradient-volume: linear-gradient(to right, #FFD700, #FFFF66);
+  --gradient-stroke: linear-gradient(to top, #FFA500, #FFD700);
+
+  /* Backgrounds */
+  --bg-image: url("images/background.png");
+  --cover-image: url("images/college-dropout-cover.jpg");
+  --vinyl-image: url("images/vinyl.png");
+
+  /* Font */
+  --font-family: "Arial", Helvetica, sans-serif;
+  --font-weight: bold;
+}
+
+/* === THEME STYLING === */
+body {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.cover {
+  background: var(--cover-image) no-repeat center/cover;
+}
+
+.vinyl-inner {
+  background: var(--vinyl-image) no-repeat center/cover;
+}
+
+a:hover, h1:hover, h2:hover, h3:hover, p:hover {
+  color: var(--color-hover);
+}
+
+.track-artist {
+  color: var(--color-highlight);
+}
+
+.footer a {
+  color: var(--color-highlight);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-glow);
+}
+.footer a:hover {
+  color: var(--color-hover);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.seek_slider {
+  background: var(--gradient-seek);
+}
+.volume_slider {
+  background: var(--gradient-volume);
+}
+.stroke {
+  background: var(--gradient-stroke);
+  box-shadow: 0 0 5px var(--color-accent);
+}
