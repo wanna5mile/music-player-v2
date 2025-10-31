@@ -441,17 +441,39 @@ hr { margin: 40px 0; border: 0; border-top: 1px solid #FFD700; opacity: 0.5; wid
   border-radius: 10px;
 }
 
-/* --- CUPID STYLES --- */
-.cupid {
-    position: absolute;
-    width: 150px;
-    height: auto;
-    z-index: 5;
-    transition: transform 0.3s ease;
+/* --- STICKER STYLES --- */
+.stickers {
+  position: absolute;
+  width: 150px;
+  height: auto;
+  z-index: 5;
+  transition: transform 0.3s ease;
 }
-.cupid:hover { transform: scale(1.1); }
-.cupid-first-container { top: -10px; right: 180px; }
-.cupid-music-player { bottom: 180px; left: 130px; }
+
+.stickers:hover {
+  transform: scale(1.1);
+}
+
+/* Top sticker (was .cupid-first-container) */
+.sticker-up {
+  top: 60px;
+  right: 120px;
+  transform: translateY(0);
+}
+
+/* Bottom sticker (was .cupid-music-player) */
+.sticker-down {
+  bottom: 160px;
+  left: 130px;
+  transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stickers {
+    display: none;
+  }
+}
 
 /* === MOBILE OPTIMIZATION === */
 @media (max-width: 768px) {
