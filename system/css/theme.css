@@ -19,9 +19,9 @@
   --gradient-stroke: linear-gradient(to top, #FFA500, #FFD700);
 
   /* Backgrounds */
-  --bg-image: url("images/background.png");
-  --cover-image: url("images/college-dropout-cover.jpg");
-  --vinyl-image: url("images/vinyl.png");
+--bg-image: url("../../images/background.png");
+--cover-image: url("../../images/college-dropout-cover.jpg");
+--vinyl-image: url("../../images/vinyl.png");
 
   /* Font */
   --font-family: "Arial", Helvetica, sans-serif;
