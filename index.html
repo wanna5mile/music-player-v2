@@ -2,19 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="theme-color" content="#222"/>
-  <title>Music player v2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#222" />
+  <title>Music Player v2</title>
 
-  <link rel="stylesheet" href="system/css/index.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
-  <link rel="icon" href="https://d1yjjnpx0p53s8.cloudfront.net/pp840x830-pad1000x1000f8f8f8.jpg?9oPTJs..erd0K9tiddIL4J9OjiCfetIN" />
+  <!-- === CSS STRUCTURE === -->
+  <!-- Main structure and layout styles -->
+  <link rel="stylesheet" href="system/css/main.css" />
+
+  <!-- Theme (colors, backgrounds, variable-driven customization) -->
+  <link rel="stylesheet" href="system/css/theme.css" />
+
+  <!-- Font Awesome for icons -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" 
+  />
+
+  <!-- Favicon -->
+  <link 
+    rel="icon" 
+    href="https://d1yjjnpx0p53s8.cloudfront.net/pp840x830-pad1000x1000f8f8f8.jpg?9oPTJs..erd0K9tiddIL4J9OjiCfetIN" 
+  />
 </head>
 <body>
 
-  <!-- Music Player -->
+  <!-- === STICKERS (Cupids) === -->
   <div class="stickers cupid-first-container" id="cupidFlipped"></div>
 
+  <!-- === MUSIC PLAYER CONTAINER === -->
   <div class="container" id="musicPlayer">
     <div class="player card background" id="playerBackground">
       <div class="wrapper">
@@ -59,6 +75,7 @@
         </div>
       </div>
       
+      <!-- === AUDIO VISUALIZER === -->
       <div id="wave" class="loader">
         <span class="stroke"></span>
         <span class="stroke"></span>
@@ -73,9 +90,9 @@
     <div class="stickers cupid-music-player" id="cupidNormal"></div>
   </div>
 
-  <!-- Scripts -->
+  <!-- === SCRIPTS === -->
   <script>
-    // Only fetch votes, no voting
+    // Fetch votes (read-only)
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyx1pB3AbeDIaWFxDANrrEWY2NkgNmRYB3k_aNR109pR5aEVExaWniEc5-oZ0D2xy6FXw/exec";
     const votesDisplay = document.getElementById("currentVotes");
 
@@ -93,9 +110,8 @@
     setInterval(fetchVotes, 5000);
   </script>
 
-  <!-- Load music fetcher first -->
+  <!-- JS Modules -->
   <script src="system/js/music-fetch.js" defer></script>
-  <!-- Then load player -->
   <script src="system/js/music-playerv2.js" defer></script>
   <script src="system/js/404.js" defer></script> 
 </body>
